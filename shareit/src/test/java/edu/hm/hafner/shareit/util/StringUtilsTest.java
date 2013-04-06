@@ -35,8 +35,8 @@ public class StringUtilsTest {
     @Test
     public void testeStringAufWhitespace() {
         assertTrue("Dieser String enthält nur Whitespace", StringUtils.isBlank("     "));
+        assertTrue("Dieser String enthält nur Whitespace", StringUtils.isBlank("\t"));
         assertFalse("Dieser String enthält nicht nur Whitespace", StringUtils.isBlank("Nicht nur Whitespace"));
-//        assertTrue("Dieser String ist null", StringUtils.isBlank(null));
     }
 
     /**
@@ -47,11 +47,11 @@ public class StringUtilsTest {
      */
     @Test
     public void testeZeichenAusEinemStringEntfernen() {
-        assertEquals("Hao", StringUtils.strip("Hallo", "ll"));
-        assertEquals("D i in T, dr kl", StringUtils.strip("Das ist ein Test, der klappt", "astep"));
-        assertEquals("Auch mit Buchstaben, die nicht enthalten sind gehts.",
+        assertEquals("Dieser Test sollte klappen", "Hao", StringUtils.strip("Hallo", "ll"));
+        assertEquals("Dieser Test sollte klappen", "D i in T, dr kl", StringUtils.strip("Das ist ein Test, der klappt", "astep"));
+        assertEquals("Dieser Test sollte klappen", "Auch mit Buchstaben, die nicht enthalten sind gehts.",
                 StringUtils.strip("Auch mit Buchstaben, die nicht enthalten sind gehts.", "xyzwrj"));
-        assertNotSame("Hallo", StringUtils.strip("Hallo", "ll"));
+        assertNotSame("Dieser Test sollte nicht klappen", "Hallo", StringUtils.strip("Hallo", "ll"));
     }
 
     /**
@@ -60,9 +60,10 @@ public class StringUtilsTest {
      */
     @Test
     public void testeStringAusEinzelnenStringsZusammensetzen() {
-        assertEquals("H, a, l, l, o", StringUtils.join("H", "a", "l", "l", "o"));
-        assertEquals("H, a, (null), (null), o", StringUtils.join("H", "a", null, null, "o"));
-        assertEquals(null, StringUtils.join());
+        assertEquals("Dieser Test sollte funktionieren", "H, a, l, l, o", StringUtils.join("H", "a", "l", "l", "o"));
+        assertEquals("Dieser Test sollte funktionieren", "H, a, (null), (null), o", StringUtils.join("H", "a", null, null, "o"));
+        assertEquals("Dieser Test sollte funktionieren", null, StringUtils.join());
+        assertNotSame("Dieser Test sollte nicht funktionieren", "Hallo", StringUtils.join("H", "a", "l", "l", "o"));
     }
 
     /**
@@ -70,10 +71,11 @@ public class StringUtilsTest {
      */
     @Test
     public void testePasswortAufVorgabe() {
+        assertTrue("Dieses Passwort sollte funktionieren", StringUtils.isSecure("Das_Passwort1289!_ist_OK"));
         assertTrue("Dieses Passwort sollte funktionieren", StringUtils.isSecure("Tobias98_ist_in_Ordnung!"));
         assertTrue("Dieses Passwort sollte funktionieren", StringUtils.isSecure("Abcdefg12345671#?18192021"));
         assertFalse("Dieses Passwort sollte nicht funktionieren", StringUtils.isSecure("ZuKleines!Passwort1"));
-//        assertFalse("Dieses Passwort sollte nicht funktionieren", StringUtils.isSecure("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP"));
+        assertFalse("Dieses Passwort sollte nicht funktionieren", StringUtils.isSecure("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP"));
     }
 
     /**
@@ -90,6 +92,8 @@ public class StringUtilsTest {
         assertTrue("Diese ISBN10 sollte korrekt sein:", StringUtils.isValidIsbn10("1-57231-422-2"));
         assertFalse("Diese ISBN10 sollte falsch sein:", StringUtils.isValidIsbn10("3-680-08783-7-88888-989898989"));
         assertFalse("Sollte false zurückbekommen, da nichts übergeben wurde:", StringUtils.isValidIsbn10(""));
+        assertTrue("Diese ISBN10 sollte korrekt sein", StringUtils.isValidIsbn10("3-499-13599-X"));
+        assertFalse("Sollte false zurückbekommen, da nichts übergeben wurde:", StringUtils.isValidIsbn10(null));
     }
 
     /**
@@ -100,6 +104,11 @@ public class StringUtilsTest {
     @Test
     public void testeIsbn13AufKorrektheit() {
        assertTrue("Diese ISBN13 sollte korrekt sein:", StringUtils.isVAlidIsbn13("978-3-12-732320-7"));
+       assertTrue("Diese ISBN13 sollte korrekt sein:", StringUtils.isVAlidIsbn13("9 7  8 - 3- 1 2-73 2 3 20 - 7"));
+       assertTrue("Diese ISBN13 sollte korrekt sein:", StringUtils.isVAlidIsbn13("97 8 3 82 7 31 7 1 0 0"));
+       assertFalse("Diese ISBN13 sollte nicht korrekt sein", StringUtils.isVAlidIsbn13("939394855943984837483748374384837"));
+       assertFalse("Sollte false zurückbekommen, da nichts übergeben wurde:", StringUtils.isValidIsbn10(null));
+       assertFalse("Sollte false zurückbekommen, da nichts übergeben wurde:", StringUtils.isValidIsbn10(""));
     }
 }
 
