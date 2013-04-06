@@ -48,6 +48,14 @@ public final class StringUtils {
     }
 
     /**
+     * Thorben´s Ansatz
+     */
+
+    public static boolean isBlankt(final String input){
+        return input.trim().isEmpty();
+    }
+
+    /**
      * Entfernt alle Zeichen vom Eingabestring, die im String toBeRemoved festgelegt worden sind.
      *
      * @param eingabe
@@ -69,6 +77,14 @@ public final class StringUtils {
             }
         }
         return newString.toString();
+    }
+
+    /**
+     * Thorben´s Ansatz
+     */
+    public static String stript(final String input, final String toBeRemoved){
+       String output =  input.replaceAll(toBeRemoved, "");
+        return output;
     }
 
     /**
@@ -106,6 +122,13 @@ public final class StringUtils {
     }
 
     /**
+     * Thorben´s Ansatz
+     *
+     * ist derselbe, gesehen bei wikibooks
+     */
+
+
+    /**
      * Prüft, ob das übergebene Passwort sicher ist.
      * Sichere Passwörter sind mindestens 20 Zeichen lang und enthalten
      * mindestens einen Kleinbuchstaben, einen Großbuchstaben, eine Zahl und ein Sonderzeichen.
@@ -114,6 +137,13 @@ public final class StringUtils {
      * @return  true: PasswortEingabe ist korrekt
      *          false: PasswortEingabe ist nicht korrekt
      */
+
+    /**
+     * Es fehlt die 10 verschiedene Zeichen erkennung
+     *
+     *
+     */
+
     public static boolean isSecure(final String passwortEingabe) {
 
         if(passwortEingabe.length() < 20) {
@@ -138,6 +168,12 @@ public final class StringUtils {
      * @param isbnEingabe
      * @return  true: ISBN10 ist korrekt
      *          false: ISBN10 ist nicht korrekt
+     */
+
+    /**
+     * Verstehe nicht ganz warum du es so aufwendig gestaltest...
+     *
+     *
      */
     public static boolean isValidIsbn10(final String isbnEingabe) {
 
