@@ -54,7 +54,7 @@ public final class StringUtils {
     }
 
     /**
-     * Thorben´s Ansatz
+     * Thorben´s Ansatzs
      */
 
     public static boolean isBlankt(final String input){
@@ -271,6 +271,8 @@ public final class StringUtils {
     /**
      * Verstehe nicht ganz warum du es so aufwendig gestaltest...
      *
+     *
+     *Okay jetzt hast du es genauso gemacht wie ich a la wikipedia Prüfsummen berechnung ;)
      *
      */
     public static boolean isValidIsbn10(final String isbnEingabe) {
