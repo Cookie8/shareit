@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  * Testet die Klasse {@link StringUtils}.
  *
- * @author Ulli Hafner
+ * @author Tobias Kuchenbecker & Thorben Knichwitz
  */
 public class StringUtilsTest {
     /**
@@ -39,10 +39,11 @@ public class StringUtilsTest {
         assertFalse("Dieser String enthält nicht nur Whitespace", StringUtils.isBlank("Nicht nur Whitespace"));
     }
 
+
     /**
      * Prüft, ob alle Zeichen vom Eingabestring,
      * die im String toBeRemoved festgelegt worden sind,
-     * entfernt wurden. dlsjklö
+     * entfernt wurden.
      *
      */
     @Test

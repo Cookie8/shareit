@@ -34,32 +34,17 @@ public final class StringUtils {
     /**
      * Prüft, ob der übergebene String nur Whitespace enthält.
      *
-     * @param eingabe
+     * @param input
      *              der zu prüfende String
      * @return  <code>true</code> falls der String nur Whitespace enthält
      *          <code>false</code> andernfalls.
      *
-     * @author Cookie
-     */
-    public static boolean isBlank(final String eingabe) {
-
-        // Falls der String nur Whitespace enthielt, hat er nach "tim()" die Länge 0.
-        if(eingabe.trim().length() == 0) {
-            return true;
-        }
-        // Falls der String nicht nur Whitspace enthielt.
-        else {
-            return false;
-        }
-    }
-
-    /**
-     * Thorben´s Ansatzs
+     * @author Tobias Kuchenbecker & Thorben Knichwitz
      */
 
-    public static boolean isBlankt(final String input){
-        return input.trim().isEmpty();
-    }
+        public static boolean isBlank(final String input){
+            return input.trim().isEmpty();
+        }
 
     /**
      * Entfernt alle Zeichen vom Eingabestring, die im String toBeRemoved festgelegt worden sind.
@@ -71,7 +56,7 @@ public final class StringUtils {
      * @return newString
      *              der bearbeitete String
      *
-     * @author Cookie
+     * @author Tobias Kuchenbecker & Thorben Knichwitz
      */
     public static String strip(final String eingabe, final String toBeRemoved) {
 
@@ -107,14 +92,6 @@ public final class StringUtils {
     }
 
     /**
-     * Thorben´s Ansatz
-     */
-    public static String stript(final String input, final String toBeRemoved){
-       String output =  input.replaceAll(toBeRemoved, "");
-        return output;
-    }
-
-    /**
      * Konkateniert die übergebenen Strings zu einem neuen String.
      * Die einzelnen Elemente werden durch ein Komma getrennt.
      * Mindestens ein Element muss übergeben werden.
@@ -126,7 +103,7 @@ public final class StringUtils {
      * @return newString
      *              der neue, zusammengesetzte String
      *
-     * @author Cookie
+     * @author Tobias Kuchenbecker & Thorben Knichwitz
      */
     public static String join(final String... elements) {
 
@@ -177,13 +154,7 @@ public final class StringUtils {
      * @return  <code>true</code> falls Passwort korrekt
      *          <code>falls</code> andernfalls
      *
-     * @author Cookie
-     */
-
-    /**
-     * Es fehlt die 10 verschiedene Zeichen erkennung
-     *
-     *
+     * @author Tobias Kuchenbecker & Thorben Knichwitz
      */
 
     public static boolean isSecure(final String passwortEingabe) {
@@ -265,16 +236,9 @@ public final class StringUtils {
      * @return  <code>ture</code> ISBN10 ist korrekt
      *          <code>falls</code> andernfalls
      *
-     * @author Cookie
+     * @author Tobias Kuchenbecker & Thorben Knichwitz
      */
 
-    /**
-     * Verstehe nicht ganz warum du es so aufwendig gestaltest...
-     *
-     *
-     *Okay jetzt hast du es genauso gemacht wie ich a la wikipedia Prüfsummen berechnung ;)
-     *
-     */
     public static boolean isValidIsbn10(final String isbnEingabe) {
 
         // Wenn Länge der ISBN nicht passt
@@ -310,7 +274,7 @@ public final class StringUtils {
      * @return  <code>true</code> ISBN13 ist korrekt
      *          <code>false</code> andernfalls
      *
-     * @author Cookie
+     * @author Tobias Kuchenbecker & Thorben Knichwitz
      */
     public static boolean isVAlidIsbn13(final String isbnEingabe) {
 
@@ -387,7 +351,7 @@ public final class StringUtils {
      * @return  <code>true</code> ISBN-Prüfziffern stimmen überein
      *          <code>false</code> andernfalls
      *
-     * @author Cookie
+     * @author Tobias Kuchenbecker & Thorben Knichwitz
      */
     private static boolean compareDigits(final int check_digit, final int compare_digit) {
         if(check_digit != compare_digit) {
@@ -406,7 +370,7 @@ public final class StringUtils {
      * @return intArray
      *                  Array der ISBN-Zahlen
      *
-     * @author Cookie
+     * @author Tobias Kuchenbecker & Thorben Knichwitz
      */
     private static int[] getIsbnCharactersToIntArray(final String isbnEingabe) {
 
@@ -436,4 +400,9 @@ public final class StringUtils {
         }
         return intArray;
     }
+
+
+
+
+
 }
